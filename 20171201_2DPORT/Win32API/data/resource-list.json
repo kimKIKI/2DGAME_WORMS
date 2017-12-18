@@ -1,0 +1,442 @@
+{
+    "global": {
+        "images": [
+        ]
+    },
+    "splash": {
+        "images": [
+        ],
+        "sounds":[
+        ]
+    },
+    "title": {
+        "images": [
+        ],
+        "sounds":[
+        ]
+    },
+    "loading": {
+        "images": [
+            {
+            	"worms_Sprite":[
+            		{
+                         "id": 0,
+                         "type":"IDLE",
+                         "key": "kworms_accus",
+                         "filename": "waccuse.png",
+                         "width": 60,
+                         "height": 2160,
+                         "xFrame":1,
+                         "yFrame":33
+            		},
+            		{
+            			 "id": 1,
+            			  "type":"IDLE",
+                         "key": "kworms_accusd",
+                         "filename": "waccused.png",
+                         "width": 60,
+                         "height": 2160,
+                         "xFrame":1,
+                         "yFrame":33
+
+            		},
+            		{
+                         "id": 2,
+                          "type":"IDLE",
+                         "key": "kworms_accusu",
+                         "filename": "waccuseu.png",
+                         "width": 60,
+                         "height": 2160,
+                         "xFrame":1,
+                         "yFrame":33
+
+            		},
+            		{
+                         "id": 3,
+                          "type":"IDLE",
+                         "key": "kworm_airbak",
+                         "filename": "wairbak.png",
+                         "width": 60,
+                         "height": 600,
+                         "xFrame":1,
+                         "yFrame":10
+
+
+            		},
+            		{
+                         "id": 4,
+                          "type":"IDLE",
+                         "key": "kworm_airbakd",
+                         "filename": "wairbakd.png",
+                         "width": 60,
+                         "height": 600,
+                         "xFrame":1,
+                         "yFrame":10
+
+            		},
+            		{
+
+                         "id": 5,
+                          "type":"IDLE",
+                         "key": "kworm_airbaku",
+                         "filename": "wairbaku.png",
+                         "width": 60,
+                         "height": 600,
+                         "xFrame":1,
+                         "yFrame":10
+
+            		},
+            		{
+                         "id": 6,
+                          "type":"IDLE",
+                         "key": "kworm_airlnk",
+                         "filename": "wairlnk.png",
+                         "width": 60,
+                         "height": 600,
+                         "xFrame":1,
+                         "yFrame":10
+
+
+            		},
+            		{
+                         "id": 7,
+                          "type":"IDLE",
+                         "key": "kworm_airbakd",
+                         "filename": "wairbakd.png",
+                         "width": 60,
+                         "height": 600,
+                         "xFrame":1,
+                         "yFrame":10
+
+            		},
+            		{
+                         "id": 8,
+                          "type":"IDLE",
+                         "key": "kworm_airlnku",
+                         "filename": "wairlnku.png",
+                         "width": 60,
+                         "height": 600,
+                         "xFrame":1,
+                         "yFrame":10
+            		},
+            		{
+                         "id": 9,
+                          "type":"IDLE",
+                         "key": "kworm_airtlk",
+                         "filename": "wairtlk.png",
+                         "width": 60,
+                         "height": 600,
+                         "xFrame":1,
+                         "yFrame":10
+
+            		},
+            		{
+                         "id": 10,
+                          "type":"IDLE",
+                         "key": "kworm_airtlkd",
+                         "filename": "wairtlkd.png",
+                         "width": 60,
+                         "height": 600,
+                         "xFrame":1,
+                         "yFrame":10
+
+            		},
+            		{
+                         "id": 11,
+                          "type":"IDLE",
+                         "key": "kworm_airtlku",
+                         "filename": "wairtlku.png",
+                         "width": 60,
+                         "height": 600,
+                         "xFrame":1,
+                         "yFrame":10
+
+            		},
+            		{
+                         "id": 12,
+                          "type":"ATK",
+                         "key": "kworm_axebak",
+                         "filename": "waxebak.png",
+                         "width": 104,
+                         "height": 1872,
+                         "xFrame":1,
+                         "yFrame":17
+            		},
+            		{
+                         "id": 13,
+                          "type":"ATK",
+                         "key": "kworm_axebakd",
+                         "filename": "waxebakd.png",
+                         "width": 104,
+                         "height": 1872,
+                         "xFrame":1,
+                         "yFrame":17
+            		},
+            		{
+                         "id": 14,
+                          "type":"ATK",
+                         "key": "kworm_axebaku",
+                         "filename": "waxebaku.png",
+                         "width": 104,
+                         "height": 1872,
+                         "xFrame":1,
+                         "yFrame":17
+            		},
+            		{
+                         "id": 15,
+                          "type":"ATK",
+                         "key": "kworm_axebak2",
+                         "filename": "waxebk2.png",
+                         "width": 104,
+                         "height": 1560,
+                         "xFrame":1,
+                         "yFrame":15
+            		},
+            		{
+                         "id": 16,
+                          "type":"ATK",
+                         "key": "kworm_axebk2d",
+                         "filename": "waxebk2d.png",
+                         "width": 104,
+                         "height": 1560,
+                         "xFrame":1,
+                         "yFrame":15
+            		},
+            		{
+                         "id": 17,
+                          "type":"ATK",
+                         "key": "kworm_axebk2u",
+                         "filename": "waxebk2u.png",
+                         "width": 104,
+                         "height": 2392,
+                         "xFrame":1,
+                         "yFrame":17
+            		},
+            		{
+
+                         "id": 18,
+                          "type":"ATK",
+                         "key": "kworm_axelk2",
+                         "filename": "waxelk2.png",
+                         "width": 104,
+                         "height": 2392,
+                         "xFrame":1,
+                         "yFrame":17           		
+                     },
+
+            		{
+                         "id": 19,
+                          "type":"ATK",
+                         "key": "kworm_axelk2d",
+                         "filename": "waxelk2d.png",
+                         "width": 104,
+                         "height": 2392,
+                         "xFrame":1,
+                         "yFrame":17  
+                     },         		
+            		{
+                        "id": 20,
+                         "type":"ATK",
+                         "key": "kworm_axelk2d",
+                         "filename": "waxelk2d.png",
+                         "width": 104,
+                         "height": 2392,
+                         "xFrame":1,
+                         "yFrame":17  
+
+            		},
+            		{
+                        "id": 21,
+                         "type":"ATK",
+                         "key": "kworm_axelk2u",
+                         "filename": "waxelk2u.png",
+                         "width": 104,
+                         "height": 2392,
+                         "xFrame":1,
+                         "yFrame":17  
+            		},
+            		{
+                        "id": 22,
+                         "type":"ATK",
+                         "key": "kworm_axelk2d",
+                         "filename": "waxelk2d.png",
+                         "width": 104,
+                         "height": 2392,
+                         "xFrame":1,
+                         "yFrame":17  
+
+            		},
+            		{
+                        "id": 23,
+                         "type":"ATK",
+                         "key": "kworm_axelnk",
+                         "filename": "waxelnk.png",
+                         "width": 104,
+                         "height": 1560,
+                         "xFrame":1,
+                         "yFrame":15  
+            		},
+            		{
+                         "id": 24,
+                          "type":"ATK",
+                         "key": "kworm_axelnkd",
+                         "filename": "waxelnkd.png",
+                         "width": 104,
+                         "height": 1560,
+                         "xFrame":1,
+                         "yFrame":15  
+            		},
+            		{
+                         "id": 25,
+                          "type":"ATK",
+                         "key": "kworm_axelnku",
+                         "filename": "waxelnku.png",
+                         "width": 104,
+                         "height": 1560,
+                         "xFrame":1,
+                         "yFrame":15  
+            		},
+            		{
+                         "id": 26,
+                          "type":"ATK",
+                         "key": "kworm_thrhcl",
+                         "filename": "wthrhcl.png",
+                         "width": 60,
+                         "height": 1920,
+                         "xFrame":1,
+                         "yFrame":32  
+            		},
+            		{
+                         "id": 27,
+                          "type":"ATK",
+                         "key": "kworm_thrhcld",
+                         "filename": "wthrhcld.png",
+                         "width": 60,
+                         "height": 1920,
+                         "xFrame":1,
+                         "yFrame":30  
+            		},
+            		{
+                         "id": 28,
+                          "type":"ATK",
+                         "key": "kworm_thrhclu",
+                         "filename": "wthrhclu.png",
+                         "width": 60,
+                         "height": 1920,
+                         "xFrame":1,
+                         "yFrame":30  
+            		}
+                     ,
+                     {
+                        "id": 29,
+                          "type":"ATK",
+                         "key": "kworm_thrpbm",
+                         "filename": "wthrpbm.png",
+                         "width": 60,
+                         "height": 1920,
+                         "xFrame":1,
+                         "yFrame":30  
+
+                     },
+                     {
+                        "id": 30,
+                          "type":"ATK",
+                         "key": "kworm_thrpbmd",
+                         "filename": "wthrpbmd.png",
+                         "width": 60,
+                         "height": 1920,
+                         "xFrame":1,
+                         "yFrame":30  
+                     },
+                     {
+                          "id": 31,
+                          "type":"ATK",
+                         "key": "kworm_thrpbu",
+                         "filename": "wthrpbu.png",
+                         "width": 60,
+                         "height": 1920,
+                         "xFrame":1,
+                         "yFrame":30  
+                     },
+                     {
+                          "id": 32,
+                          "type":"WALK",
+                         "key": "kworm_walk",
+                         "filename": "wwalk.png",
+                         "width": 60,
+                         "height": 900,
+                         "xFrame":1,
+                         "yFrame":14 
+                     },
+                     {
+                          "id": 33,
+                          "type":"WALK",
+                         "key": "kworm_walkd",
+                         "filename": "wwalkd.png",
+                         "width": 60,
+                         "height": 900,
+                         "xFrame":1,
+                         "yFrame":14 
+                     },
+                     {
+                         "id": 34,
+                          "type":"WALK",
+                         "key": "kworm_walku",
+                         "filename": "wwalku.png",
+                         "width": 60,
+                         "height": 900,
+                         "xFrame":1,
+                         "yFrame":14 
+                     }
+
+
+
+            	]
+            },
+            {
+                "id": 0,
+                "key": "bg-gauge",
+                "filename": "bg-gauge.bmp",
+                "width": 200,
+                "height": 20
+            },
+            {
+                "id": 1,
+                "key": "fg-gauge",
+                "filename": "fg-gauge.bmp",
+                "width": 200,
+                "height": 20
+            },
+            {
+            	"id": 2,
+                "key": "Zelda-bg",
+                "filename": "Zelda-bg.bmp",
+                "width": 1280,
+                "height": 694
+            },
+            {
+            	"id": 3,
+                "key": "link-run",
+                "filename": "link-run.bmp",
+                "width": 286,
+                "height": 25
+            }
+        ]
+    },
+    "ending-credit":{
+        "images":[
+        ],
+        "sounds":[
+        ]
+    },
+    "cookie":{
+        "images":[
+        ]
+    },
+    "exit":{  
+    	"images":[
+    	],
+    	"sounds":[
+		]
+    }
+}
