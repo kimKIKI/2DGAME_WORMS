@@ -189,7 +189,40 @@ void cImage::SetupFrameImage(const char * fileName, int width, int height, int f
 	ReleaseDC(g_hWnd, hdc);
 }
 
-               // =========PNG=================
+//  배경이 이미지를 확대하기 위해서 bmp 전용 남겨둠
+void cImage::SetupBMP(const char* fileName, int width, int height, bool isTrans, COLORREF transColor)
+{
+	// DC 가져오기
+	HDC hdc = GetDC(g_hWnd);
+
+	// 이미지 정보 새로 생성 및 초기화
+	m_pImageInfo = new IMAGE_INFO;
+	m_pImageInfo->btLoadType = LOAD_FILE;
+	m_pImageInfo->dwResID = 0;
+	m_pImageInfo->hMemDC = CreateCompatibleDC(hdc);
+	m_pImageInfo->hBit = (HBITMAP)LoadImage(g_hInst, fileName, IMAGE_BITMAP, width, height, LR_LOADFROMFILE);
+	m_pImageInfo->hOldBit = (HBITMAP)SelectObject(m_pImageInfo->hMemDC, m_pImageInfo->hBit);
+	m_pImageInfo->nWidth = width;
+	m_pImageInfo->nHeight = height;
+	m_pImageInfo->nFrameWidth = width;
+	m_pImageInfo->nFrameHeight = height;
+
+	assert(m_pImageInfo->hBit && "이미지 파일을 읽어오지 못 했다.");
+
+	// 파일 이름
+	int len = strlen(fileName);
+	m_szFileName = new char[len + 1];
+	strcpy_s(m_szFileName, len + 1, fileName);
+
+	// 투명키 컬러 셋팅
+	m_isTrans = isTrans;
+	m_transColor = transColor;
+
+	// DC 해제
+	ReleaseDC(g_hWnd, hdc);
+}
+
+ // =========PNG=========================================================================
 void cImage::SetupFrameImagePNG(const char * fileName, int width, int height, int frameX, int frameY, int x, int y, bool isTrans, COLORREF transColor)
 {
 
@@ -313,7 +346,7 @@ void cImage::Render(HDC hdc, int destX, int destY)
 void cImage::Render(HDC hdc, int destX, int destY, int sizeX, int sizeY)
 {
 	// GdiTransparentBlt : 비트맵을 불러올때 특정색상을 제외하고 복사를 하는 함수
-	GdiTransparentBlt(
+ 	GdiTransparentBlt(
 		hdc,					// 복사 할 장소의 DC
 		destX,					// 복사 될 좌표 시작 지점 X
 		destY,					// 복사 될 좌표 시작 지점 Y

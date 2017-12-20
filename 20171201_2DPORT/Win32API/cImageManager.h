@@ -25,24 +25,17 @@ public:
 	cImage* AddEmptyImage(string key, int width, int height);
 	// 이미지 파일 셋업
 	cImage* AddImage(string key, const char* fileName, int width, int height,
-		bool isTrans = false, COLORREF transColor = RGB(0, 0, 0))
-	{
-		cImage* img = FindImage(key);
-
-		if (img == NULL)
-		{
-			img = new cImage;
-			img->SetupImage(fileName, width, height, isTrans, transColor);
-			m_mapImage.insert(make_pair(key, img));
-		}
-
-		return img;
-	}
+		bool isTrans = false, COLORREF transColor = RGB(0, 0, 0));
+	
 	// 프레임 이미지 셋업
 	cImage* AddFrameImage(string key, const char* fileName, int width, int height, int frameX, int frameY,
 		bool isTrans = false, COLORREF transColor = RGB(0, 0, 0));
 	cImage* AddFrameImage(string key, const char* fileName, int width, int height, int frameX, int frameY,
 		int x, int y, bool isTrans = false, COLORREF transColor = RGB(0, 0, 0));
+
+	// 뒷배경을 확대하기 위해서 셋업
+	cImage* AddBmpImage(string key, const char* fileName, int width, int height,
+		     bool isTrans = false, COLORREF transColor = RGB(0, 0, 0));
 
 	//==================================================================
 	//		## 이미지 검색 및 삭제 ##

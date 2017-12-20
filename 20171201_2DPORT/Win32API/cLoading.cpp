@@ -14,6 +14,23 @@ void cLoadItem::InitForEmpty(string key, int width, int height)
 	m_stImageResource.height = height;
 }
 
+void cLoadItem::InitForImageBMP(string key, const char * fileName, int width, int height, bool isTrans, COLORREF transColor)
+{
+
+	m_eKind = LOAD_KIND_BMP;
+
+	memset(&m_stImageResource, 0, sizeof(tagImageResource));
+	m_stImageResource.key = string(key);
+	m_stImageResource.fileName = fileName;
+	m_stImageResource.width = width;
+	m_stImageResource.height = height;
+
+	m_stImageResource.isTrans = isTrans;
+	m_stImageResource.transColor = transColor;
+
+
+}
+
 void cLoadItem::InitForImage(string key, const char * fileName, int width, int height,
 	bool isTrans, COLORREF transColor)
 {
@@ -76,6 +93,8 @@ void cLoadItem::InitForSound(string key, const char* fileName, bool bgm, bool lo
 	m_stSoundResource.bgm = bgm;
 	m_stSoundResource.loop = loop;
 }
+
+
 
 // =================================================================================================
 
@@ -152,6 +171,15 @@ void cLoading::LoadEmpty(string key, int width, int height)
 	m_vLoadItem.push_back(item);
 }
 
+void cLoading::LoadBmpFile(string key, const char* filename,int width, int height, bool isTrans, COLORREF transColor)
+{
+	cLoadItem* item = new cLoadItem;
+
+	item->InitForImageBMP(key, filename, width, height, isTrans, transColor);
+	m_vLoadItem.push_back(item);
+
+}
+
 void cLoading::LoadImageFile(string key, const char* fileName, int width, int height,
 	bool isTrans, COLORREF transColor)
 {
@@ -187,6 +215,7 @@ void cLoading::LoadSound(string key, const char* fileName, bool bgm, bool loop)
 	m_vLoadItem.push_back(item);
 }
 
+
 bool cLoading::LoadingDone()
 {
 	if (m_nCurrentGauge >= m_vLoadItem.size())
@@ -215,6 +244,11 @@ bool cLoading::LoadingDone()
 		img = item->GetImageResource();
 		g_pImageManager->AddFrameImage(img.key, img.fileName, img.width, img.height,
 			img.frameX, img.frameY, img.x, img.y, img.isTrans, img.transColor);
+		break;
+	case LOAD_KIND_BMP:
+		img = item->GetImageResource();
+		g_pImageManager->AddBmpImage(img.key,img.fileName,img.width,img.height,
+			          img.isTrans,img.transColor);
 		break;
 	case LOAD_KIND_SOUND:
 		tagSoundResource sound = item->GetSoundResource();

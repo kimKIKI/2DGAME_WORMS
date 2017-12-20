@@ -65,8 +65,6 @@ void cLoadingScene::LoadingImage()
 		m_pLoading->LoadFrameImage("kworm_walk","images/state/WALK/wwalk.png", 60, 900, 1, 15, true, RGB(255, 0, 255));
 		m_pLoading->LoadFrameImage("kworm_walkd", "images/state/WALK/wwalkd.png", 60, 900, 1, 15, true, RGB(255, 0, 255));
 		m_pLoading->LoadFrameImage("kworm_walku", "images/state/WALK/wwalku.png", 60, 900, 1, 15, true, RGB(255, 0, 255));
-
-
 		m_pLoading->LoadFrameImage("kworm_whrhcl", "images/state/ATK/wthrhcl.png", 60, 1920, 1, 30, true, RGB(255, 0, 255));
 
 		  //ÁÂ °æ»ç¸é
@@ -77,15 +75,18 @@ void cLoadingScene::LoadingImage()
 		//m_pLoading->LoadFrameImage("Worm_winkD", "images/wpeekD.png", 60,1020, 1, 17, true, RGB(255, 0, 255));
 		  //À®Å©
 		//m_pLoading->LoadFrameImage("Worm1","images/wpeek.png", 60, 1020, 1, 17, true, RGB(255, 0, 255));
-
-
-
 		//m_pImgMapBuffer = g_pImageManager->AddImage("MapBuffer", WINSIZEX * 2, WINSIZEY + WINSIZEY / 2);
 		//m_pImgMapBuffer->SetTransColor(true, RGB(255, 0, 255)); //ºó ¸Ê¹öÆÛ »ý¼º, ¸¶Á¨Å¸°ª »©±â true
 
-		m_pLoading->LoadImageFile("bg","images/warm.bmp", 3000, 1500);
-		m_pLoading->LoadEmpty("MapBuffer",WINSIZEX*2,WINSIZEY+WINSIZEY/2);
 
+		//¸¶Á¨Å¸ ÀÖ´Â ¸Ê 3000,1500
+		m_pLoading->LoadImageFile("Map","images/warm.bmp", WINSIZEX * 2, WINSIZEY + WINSIZEY / 2);
+		//ºó¹öÆÛ
+		m_pLoading->LoadEmpty("MapBuffer", WINSIZEX * 2, WINSIZEY + WINSIZEY / 2);
+		//µÞ¹è°æ **ÀÌ¹ÌÁö¸¦ ´Ã·Á¼­ ¾µ°æ¿ì  ¼öÁ¤µÈ png cImage¸¦ ¾²Áö¸»°Í
+		m_pLoading->LoadBmpFile("background2","images/back2.bmp",256,256,false,RGB(255,0,255));
+		m_pLoading->LoadFrameImage("Cursor", "images/Cursor.bmp", 49,16,3,1,true,RGB(255,0,255));
+	
 		break;
 		
 	}

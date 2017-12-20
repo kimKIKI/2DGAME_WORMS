@@ -84,6 +84,8 @@ public:
 	void SetupFrameImage(const char* fileName, int width, int height, int frameX, int frameY,
 		int x, int y, bool isTrans = false, COLORREF transColor = RGB(0, 0, 0));
 
+	//배경이미지 확대를 위해서 남겨둠
+	void SetupBMP(const char* fileName, int width, int height, bool isTrans, COLORREF transColor);
 
 	//=====================================================================
 	//     # PNG 이미지 셋업
@@ -113,10 +115,12 @@ public:
 	//		## 프레임 렌더 ##
 	//==================================================================
 	void FrameRender(HDC hdc, int destX, int destY);
+	
 	void FrameRender(HDC hdc, int destX, int destY, int sourX, int sourY);
 	void FrameRender(HDC hdc, int destX, int destY, int sourX, int sourY, int sizeX, int sizeY);
 	void FrameRender(HDC hdc, int destX, int destY,
 		int sourX, int sourY, int maxX, int maxY, int delay);
+
 
 	//==================================================================
 	//		## inline ## (인라인 함수들 - 겟터, 셋터)

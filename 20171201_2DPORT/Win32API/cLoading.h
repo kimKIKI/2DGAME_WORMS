@@ -7,6 +7,7 @@ enum LOAD_KIND
 	LOAD_KIND_IMAGE_0,		// 일반 이미지
 	LOAD_KIND_FRAMEIMAGE_0,	// 프레임 이미지
 	LOAD_KIND_FRAMEIMAGE_1,	// 프레임 이미지
+	LOAD_KIND_BMP,          //png일때 크기가 늘어나지 않아서 기존 bmp사용
 	LOAD_KIND_SOUND,		// 사운드
 	LOAD_KIND_END
 };
@@ -54,6 +55,9 @@ public:
 	// 사운드 - 초기화 및 추가
 	void InitForSound(string key, const char* fileName, bool bgm, bool loop);
 
+	void InitForImageBMP(string key, const char* fileName, int width, int height, bool isTrans = false, COLORREF transColor = RGB(255,0,255));
+
+
 	// 로딩 아이템 종류 가져오기
 	LOAD_KIND GetLoadingKind() { return m_eKind; }
 	// 이미지 리소스 정보 가져오기
@@ -79,6 +83,8 @@ public:
 	void Release();
 
 	void LoadEmpty(string key, int width, int height);
+	void LoadBmpFile(string key,const char* fileName,int width,int height,bool isTrans=false,COLORREF transColor=RGB(0,0,0));
+
 	void LoadImageFile(string key, const char* fileName,
 		int width, int height, bool isTrans = false, COLORREF transColor = RGB(0, 0, 0));
 	void LoadFrameImage(string key, const char* fileName, int width, int height,
@@ -86,6 +92,8 @@ public:
 	void LoadFrameImage(string key, const char* fileName, int width, int height,
 		int frameX, int frameY, int x, int y, bool isTrans = false, COLORREF transColor = RGB(0, 0, 0));
 	void LoadSound(string key, const char* fileName, bool bgm = false, bool loop = false);
+
+	
 
 	// 로딩 완료 됐는가?
 	bool LoadingDone();

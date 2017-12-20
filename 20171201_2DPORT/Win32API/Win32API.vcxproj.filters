@@ -160,6 +160,15 @@
     <ClInclude Include="FileDataManager.h">
       <Filter>GameFramework2D\2. 매니져\파일 매니져</Filter>
     </ClInclude>
+    <ClInclude Include="cMap.h">
+      <Filter>GameFramework2D\5. 게임 소스\플레이어</Filter>
+    </ClInclude>
+    <ClInclude Include="cCamera.h">
+      <Filter>GameFramework2D\5. 게임 소스\플레이어</Filter>
+    </ClInclude>
+    <ClInclude Include="cCursor.h">
+      <Filter>GameFramework2D\5. 게임 소스\플레이어</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -233,6 +242,15 @@
     </ClCompile>
     <ClCompile Include="FileDataManager.cpp">
       <Filter>GameFramework2D\2. 매니져\파일 매니져</Filter>
+    </ClCompile>
+    <ClCompile Include="cMap.cpp">
+      <Filter>GameFramework2D\5. 게임 소스\플레이어</Filter>
+    </ClCompile>
+    <ClCompile Include="cCamera.cpp">
+      <Filter>GameFramework2D\5. 게임 소스\플레이어</Filter>
+    </ClCompile>
+    <ClCompile Include="cCursor.cpp">
+      <Filter>GameFramework2D\5. 게임 소스\플레이어</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -35,6 +35,21 @@ cImage* cImageManager::AddEmptyImage(string key, int width, int height)
 	return img;
 }
 
+cImage* cImageManager::AddImage(string key, const char* fileName, int width, int height,
+	bool isTrans, COLORREF transColor)
+{
+	cImage* img = FindImage(key);
+
+	if (img == NULL)
+	{
+		img = new cImage;
+		img->SetupImage(fileName, width, height, isTrans, transColor);
+		m_mapImage.insert(make_pair(key, img));
+	}
+
+	return img;
+}
+
 cImage* cImageManager::AddFrameImage(string key, const char * fileName, int width, int height,
 	int frameX, int frameY, bool isTrans, COLORREF transColor)
 {
@@ -59,6 +74,21 @@ cImage* cImageManager::AddFrameImage(string key, const char * fileName, int widt
 	{
 		img = new cImage;
 		img->SetupFrameImage(fileName, width, height, frameX, frameY, x, y, isTrans, transColor);
+		m_mapImage.insert(make_pair(key, img));
+	}
+
+	return img;
+}
+
+
+//뒷배경을 늘리기 위해서 따로작성함 
+cImage * cImageManager::AddBmpImage(string key, const char * fileName, int width, int height, bool isTrans, COLORREF transColor)
+{
+	cImage* img = FindImage("key");
+	if (img == NULL)
+	{
+		img = new cImage;
+		img->SetupBMP(fileName,width,height,isTrans,transColor);
 		m_mapImage.insert(make_pair(key, img));
 	}
 

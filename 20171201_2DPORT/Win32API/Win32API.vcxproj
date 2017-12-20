@@ -145,6 +145,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cCamera.h" />
+    <ClInclude Include="cCursor.h" />
     <ClInclude Include="cDijkstraTest.h" />
     <ClInclude Include="cFileData.h" />
     <ClInclude Include="cGameNode.h" />
@@ -155,6 +157,7 @@
     <ClInclude Include="cLoading.h" />
     <ClInclude Include="cLoadingScene.h" />
     <ClInclude Include="cMainGame.h" />
+    <ClInclude Include="cMap.h" />
     <ClInclude Include="cMapTool.h" />
     <ClInclude Include="cPixelCollision.h" />
     <ClInclude Include="cPlayer.h" />
@@ -176,6 +179,8 @@
     <ClInclude Include="Win32API.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cCamera.cpp" />
+    <ClCompile Include="cCursor.cpp" />
     <ClCompile Include="cDijkstraTest.cpp" />
     <ClCompile Include="cFileData.cpp" />
     <ClCompile Include="cGameNode.cpp" />
@@ -186,6 +191,7 @@
     <ClCompile Include="cLoading.cpp" />
     <ClCompile Include="cLoadingScene.cpp" />
     <ClCompile Include="cMainGame.cpp" />
+    <ClCompile Include="cMap.cpp" />
     <ClCompile Include="cMapTool.cpp" />
     <ClCompile Include="cPixelCollision.cpp" />
     <ClCompile Include="cPlayer.cpp" />
