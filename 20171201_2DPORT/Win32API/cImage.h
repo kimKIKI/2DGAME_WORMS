@@ -94,6 +94,8 @@ public:
 		int x, int y, bool isTrans = false, COLORREF transColor = RGB(0, 0, 0));
 
 
+	void SetSize(int width, int  height);
+
 	//알파블렌드 초기화
 	void SetupForAlphaBlend();
 
@@ -104,6 +106,8 @@ public:
 	void Render(HDC hdc, int destX, int destY);
 	void Render(HDC hdc, int destX, int destY, int sizeX, int sizeY);
 	void Render(HDC hdc, int destX, int destY, int sourX, int sourY, int sourWidth, int sourHeight);
+	void ViewPortRender(HDC hdc, RECT ViewPort);
+
 
 	//==================================================================
 	//		## 알파 렌더 ##
@@ -152,6 +156,8 @@ public:
 	// 프레임 센터 위치 셋터
 	void SetCenterX(float x) { m_pImageInfo->fPosX = x - m_pImageInfo->nFrameWidth / 2;	}
 	void SetCenterY(float y) { m_pImageInfo->fPosY = y - m_pImageInfo->nFrameHeight / 2; }
+
+	
 
 	RECT GetBoundingBox()
 	{

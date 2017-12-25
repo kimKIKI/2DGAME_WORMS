@@ -2,14 +2,14 @@
 #include "cCamera.h"
 
 
+
 cCamera::cCamera()
 {
 	//전체 버퍼맵
-	m_ImgMapBuffer = g_pImageManager->FindImage("MapBuffer");
+	                
+	m_pImgMapBuffer = g_pImageManager->FindImage("MapBuffer");
 	//전체 뒤배경
-	m_imgBG        = g_pImageManager->FindImage("background2");
-
-	cout << "cCamera m_ImgMapBuffer  " << endl;
+	m_pImgBG        = g_pImageManager->FindImage("background2");
 }
 
 cCamera::~cCamera()
@@ -17,19 +17,22 @@ cCamera::~cCamera()
 }
 void cCamera::Setup()
 {
+	
 	m_fMapPosX = 0.0f;
 	m_fMapPosY = 0.0f;
 
 	m_fStartPosX = 0.0f;
 	m_fStartPosY = 0.0f;
-	m_fEndPosX = 0.0f;
-	m_fEndPosY = 0.0f;
+	m_fEndPosX   = 0.0f;
+	m_fEndPosY   = 0.0f;
 	
 	m_fBGPosX = 0.0f;
 	m_fBGPosY = 0.0f;
 
 	m_isMoving = false;
 	m_isClick = false;
+
+	
 }
 
 void cCamera::Update()
@@ -56,12 +59,6 @@ void cCamera::Update()
 			m_fBefMousePosX = g_ptMouse.x;
 			m_fBefMousePosY = g_ptMouse.y;
 		}
-
-		if (g_pKeyManager->isOnceKeyDown(VK_SPACE))
-		{
-			cout << " BBBBBBBBBBBBBB" << endl;
-		}
-
 	}
 	//자동화면 이동
 	else if (m_isMoving)
@@ -76,7 +73,10 @@ void cCamera::Update()
 		PlusPosX(0);
 		PlusPosY(0);
 	}
+
 }
+
+
 
 //맵상의 플레이어 위치 
 void cCamera::SetCamera(float centerX, float centerY)
@@ -87,12 +87,11 @@ void cCamera::SetCamera(float centerX, float centerY)
 	//카메라 y 포커스 ----------------------------------
 	m_fMapPosX = centerX - WINSIZEX / 2;
 
-	if (m_fMapPosX > m_ImgMapBuffer->GetWidth() - WINSIZEX)
+	if (m_fMapPosX > m_pImgMapBuffer->GetWidth() - WINSIZEX)
 	{
 		//player가 중심을 넘어서면 카메라는 중심점에서 
 		//움직이지 않게 고정한다.
-		m_fMapPosX = m_ImgMapBuffer->GetWidth() - WINSIZEX;
-
+		m_fMapPosX = m_pImgMapBuffer->GetWidth() - WINSIZEX;
 	}
 	else if (m_fMapPosX < 0)
 		m_fMapPosX = 0.0f;
@@ -100,16 +99,16 @@ void cCamera::SetCamera(float centerX, float centerY)
 
 	//카메라 Y포커스 ------------------------------------------
 	m_fMapPosY = centerY - WINSIZEY / 2;
-	if (m_fMapPosY > m_ImgMapBuffer->GetHeight() - WINSIZEY)
+	if (m_fMapPosY > m_pImgMapBuffer->GetHeight() - WINSIZEY)
 	{
-		m_fMapPosY = m_ImgMapBuffer->GetHeight() - WINSIZEY;
+		m_fMapPosY = m_pImgMapBuffer->GetHeight() - WINSIZEY;
 	}
 	else if (m_fMapPosY < 0)
 		m_fMapPosY = 0.0f;
 
-	//배경위치 세팅
-	m_fBGPosX = m_fMapPosX / m_ImgMapBuffer->GetWidth()*(m_imgBG->GetWidth() - WINSIZEX);
-	m_fBGPosY = m_fMapPosY / m_ImgMapBuffer->GetHeight()*(m_imgBG->GetHeight() - WINSIZEY);
+	//배경위치 세팅----뒤배경 움직이지 않게 할경우 필요 없음
+	m_fBGPosX = m_fMapPosX / m_pImgMapBuffer->GetWidth()*(m_pImgBG->GetWidth() - WINSIZEX);
+	m_fBGPosY = m_fMapPosY / m_pImgMapBuffer->GetHeight()*(m_pImgBG->GetHeight() - WINSIZEY);
 
 }
 
@@ -120,14 +119,14 @@ void cCamera::MoveCamera(float centerX,float centerY)
 	m_fStartPosY = m_fMapPosY;
 	m_fEndPosX = centerX - WINSIZEX / 2;
 
-	if (m_fEndPosX > m_ImgMapBuffer->GetWidth() - WINSIZEX)
-		m_fEndPosX = m_ImgMapBuffer->GetWidth() - WINSIZEX;
+	if (m_fEndPosX > m_pImgMapBuffer->GetWidth() - WINSIZEX)
+		m_fEndPosX = m_pImgMapBuffer->GetWidth() - WINSIZEX;
 	else if (m_fEndPosX < 0)
 		m_fEndPosX = 0.0f;
 
 	m_fEndPosY = centerY - WINSIZEY / 2;
-	if (m_fEndPosY > m_ImgMapBuffer->GetHeight() - WINSIZEY)
-		m_fEndPosY = m_ImgMapBuffer->GetHeight() - WINSIZEY;
+	if (m_fEndPosY > m_pImgMapBuffer->GetHeight() - WINSIZEY)
+		m_fEndPosY = m_pImgMapBuffer->GetHeight() - WINSIZEY;
 	else if (m_fEndPosY < 0)
 		m_fEndPosY = 0.0f;
 
@@ -139,27 +138,25 @@ void cCamera::MoveCamera(float centerX,float centerY)
 void cCamera::PlusPosY(float plus)
 {
 	m_fMapPosY += plus;
-	if (m_fMapPosY > m_ImgMapBuffer->GetHeight() - WINSIZEY)
-		m_fMapPosY = m_ImgMapBuffer->GetHeight() - WINSIZEY;
+	if (m_fMapPosY > m_pImgMapBuffer->GetHeight() - WINSIZEY)
+		m_fMapPosY = m_pImgMapBuffer->GetHeight() - WINSIZEY;
 	else if (m_fMapPosY < 0)
 		m_fMapPosY = 0.0f;
 
 	//전체뒤배경에서  위치 셋팅
 	//                           맵버퍼                      (전체배경크기 - 화면크기)
-	m_fBGPosY = m_fMapPosY / m_ImgMapBuffer->GetHeight() * (m_imgBG->GetHeight() - WINSIZEY);
+	m_fBGPosY = m_fMapPosY / m_pImgMapBuffer->GetHeight() * (m_pImgBG->GetHeight() - WINSIZEY);
 }
 
 void cCamera::PlusPosX(float plus)
 {
 	m_fMapPosX += plus;
-
-	if (m_fMapPosX > m_ImgMapBuffer->GetHeight() - WINSIZEY)
-		m_fMapPosX = m_ImgMapBuffer->GetHeight() - WINSIZEY;
+	if (m_fMapPosX > m_pImgMapBuffer->GetHeight() - WINSIZEY)
+		m_fMapPosX = m_pImgMapBuffer->GetHeight() - WINSIZEY;
 	else if (m_fMapPosX < 0)
 		m_fMapPosX = 0.0f;
 
 	//전체뒤에서 배경 위치 셋팅
-	m_fBGPosX = m_fMapPosX / m_ImgMapBuffer->GetWidth() * (m_imgBG->GetHeight() - WINSIZEX);
+	m_fBGPosX = m_fMapPosX / m_pImgMapBuffer->GetWidth() * (m_pImgBG->GetHeight() - WINSIZEX);
 }
-
 

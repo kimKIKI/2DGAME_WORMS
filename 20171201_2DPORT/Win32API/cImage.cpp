@@ -390,6 +390,18 @@ void cImage::Render(HDC hdc, int destX, int destY, int sourX, int sourY, int sou
 	}
 }
 
+void cImage::ViewPortRender(HDC hdc, RECT ViewPort)
+{
+	GdiTransparentBlt(hdc, 0, 0,
+		WINSIZEX, WINSIZEY,
+		m_pImageInfo->hMemDC,
+		ViewPort.left, ViewPort.top,
+		ViewPort.right - ViewPort.left,
+		ViewPort.bottom - ViewPort.top,
+		RGB(255,0,255));
+
+}
+
 void cImage::AlphaRender(HDC hdc, int destX, int destY, BYTE alpha)
 {
 	// 알파블렌드 처음 사용시 초기화
@@ -457,17 +469,17 @@ void cImage::FrameRender(HDC hdc, int destX, int destY, int sourX, int sourY)
 	{
 		// GdiTransparentBlt : 비트맵을 불러올때 특정색상을 제외하고 복사를 하는 함수
 		GdiTransparentBlt(
-			hdc,					// 복사 할 장소의 DC
-			destX,					// 복사 될 좌표 시작 지점 X
-			destY,					// 복사 될 좌표 시작 지점 Y
+			hdc,					    // 복사 할 장소의 DC
+			destX,					    // 복사 될 좌표 시작 지점 X
+			destY,					    // 복사 될 좌표 시작 지점 Y
 			m_pImageInfo->nFrameWidth,	// 복사 될 이미지의 가로 크기
 			m_pImageInfo->nFrameHeight, // 복사 될 이미지의 세로 크기
-			m_pImageInfo->hMemDC,	// 복사 할 대상 DC
+			m_pImageInfo->hMemDC,	    // 복사 할 대상 DC
 			sourX * m_pImageInfo->nFrameWidth, // 현재 프레임의 시작지점 X
 			sourY * m_pImageInfo->nFrameHeight,// 현재 프레임의 시작지점 Y
 			m_pImageInfo->nFrameWidth,	// 복사 영역 가로 크기
 			m_pImageInfo->nFrameHeight,	// 복사 영역 세로 크기
-			m_transColor			// 복사 할 때 제외 할 색상(투명처리)
+			m_transColor			    // 복사 할 때 제외 할 색상(투명처리)
 		);
 	}
 	else // 원본 이미지 그대로 출력
@@ -530,6 +542,12 @@ void cImage::SetTransColor(bool isTrans, COLORREF transColor)
 {
 	m_isTrans = isTrans;
 	m_transColor = transColor;
+}
+
+void cImage::SetSize(int width, int height)
+{
+	m_pImageInfo->nFrameWidth = width;
+	m_pImageInfo->nFrameHeight = height;
 }
 
 //알파 프레임 렌더
